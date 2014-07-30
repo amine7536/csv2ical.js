@@ -50,3 +50,9 @@ Location : Coruscant
 -------------
 Saving to file : sample.ics
 ```
+
+This tool is based on :
+- yargs : https://www.npmjs.org/package/yargs
+- ical-generator : https://www.npmjs.org/package/ical-generator
+- moment : http://momentjs.com/docs/
+- fast-csv : https://www.npmjs.org/package/fast-csv
