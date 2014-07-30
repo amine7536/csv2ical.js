@@ -7,7 +7,7 @@ Quick and dirty CSV to iCal convertor
 Usage: csv2ical.js -i [csv] -o [ics] -d [delimiter] -H
 
 Examples:
-  csv2ical.js -i query_semicolon.csv -o test.ics -d ";" -H
+  csv2ical.js -i sample.csv -o sample.ics -d ";" -H
 
 
 Options:
