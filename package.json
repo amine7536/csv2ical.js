@@ -2,10 +2,11 @@
 	"name": "csv2ical",
 	"description": "Quick and dirty CSV to iCal convertor",
 	"author": "Amine Benseddik <amine.benseddik@gmail.com>",
-	
+	"homepage": "http://amine7536.github.io/csv2ical.js",
+
 	"homepage": "http://c2fo.github.com/fast-csv/index.html",
 	"license": "MIT",
-	
+
 	"dependencies": {
 		"yargs":          ">= 1.2.6",
 		"ical-generator": ">= 0.1.7",

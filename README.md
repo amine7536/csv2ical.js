@@ -2,6 +2,8 @@
 
 Quick and dirty CSV to iCal convertor
 
+http://amine7536.github.io/csv2ical.js
+
 **Usage :**
 ```
 Usage: csv2ical.js -i [csv] -o [ics] -d [delimiter] -H
