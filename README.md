@@ -1,8 +1,9 @@
-csv2ical.js
-===========
+### csv2ical.js
 
 Quick and dirty CSV to iCal convertor
 
+**Usage :**
+```
 Usage: csv2ical.js -i [csv] -o [ics] -d [delimiter] -H
 
 Examples:
@@ -16,9 +17,11 @@ Options:
   -H            To set if the first line of your CSV contain headers                        [default: false]
   --rows        Row numbers for "Subject","Start Date","End Date" ... : --rows={0,1,2,3,4}  [default: 0,1,2,3,4]
   --dateformat  Date format 31/07/2014 03:00 : --dateformat="DD-MM-YYYY HH:mm"
+```
 
 
-Example :
+**Example :**
+```
 ./csv2ical.js -i sample.csv -o sample.ics -H
 Subject : Darth Vader birthday
 Start Date : 2014-07-30 18:00
@@ -39,3 +42,4 @@ Description : Super Big party
 Location : Coruscant
 -------------
 Saving to file : sample.ics
+```
