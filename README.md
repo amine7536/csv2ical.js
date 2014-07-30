@@ -1,6 +1,6 @@
 ### csv2ical.js
 
-Quick and dirty CSV to iCal convertor
+Quick and dirty CSV to iCal convertor made with Node.js
 
 http://amine7536.github.io/csv2ical.js
 
