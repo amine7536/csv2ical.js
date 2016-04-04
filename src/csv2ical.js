@@ -47,7 +47,7 @@ cal.setDomain('mycompany.com').setName('My Calendar');
 */
 csv
   .fromStream(stream, { headers: argv.H, delimiter: argv.d })
-  .on('record', function (data){
+  .on('record', (data) => {
     // "Subject","Start Date","End Date","Description"
     // console.log(data);
     // log.info(`Subject : ${data[Object.keys(data)[argv.rows[0]]]}`); // Subject
@@ -71,7 +71,7 @@ csv
       });
     }
   })
-  .on('end', function() {
+  .on('end', () => {
     log.info(`Saving to file : ${argv.o}`);
     cal.saveSync(argv.o);
   });
