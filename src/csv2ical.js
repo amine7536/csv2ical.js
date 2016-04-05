@@ -50,13 +50,14 @@ csv
     * Only process data if StartDate starts with a number
     */
     if (data[Object.keys(data)[argv.rows[1]]].match(/^[1-9]/)) {
-    // "Subject","Start Date","End Date","Description"
-    // console.log(data);
-    // log.info(`Subject : ${data[Object.keys(data)[argv.rows[0]]]}`); // Subject
-    // log.info(`Start Date : ${data[Object.keys(data)[argv.rows[1]]]}`); // Start Date
-    // log.info(`End Date : ${data[Object.keys(data)[argv.rows[2]]]}`); // End Date
-    // log.info(`Description : ${data[Object.keys(data)[argv.rows[3]]]}`); // Description
-    // log.info(`Location : ${data[Object.keys(data)[argv.rows[4]]]}`); // Location
+      // "Subject","Start Date","End Date","Description"
+      // console.log(data);
+      log.info(`Subject : ${data[Object.keys(data)[argv.rows[0]]]}`); // Subject
+      log.info(`Start Date : ${data[Object.keys(data)[argv.rows[1]]]}`); // Start Date
+      log.info(`End Date : ${data[Object.keys(data)[argv.rows[2]]]}`); // End Date
+      log.info(`Description : ${data[Object.keys(data)[argv.rows[3]]]}`); // Description
+      log.info(`Location : ${data[Object.keys(data)[argv.rows[4]]]}`); // Location
+      log.info('-------------');
 
       const startdate = moment(data[Object.keys(data)[argv.rows[1]]], argv.dateformat);
       const enddate = moment(data[Object.keys(data)[argv.rows[2]]], argv.dateformat);
