@@ -26,5 +26,11 @@
     "eslint": "^2.6.0",
     "eslint-config-airbnb": "^6.2.0",
     "eslint-plugin-react": "^4.2.3"
+  },
+  "scripts": {
+    "build": "babel --out-dir bin src"
+  },
+  "bin": {
+    "csv2ical": "bin/csv2ical.js"
   }
 }
