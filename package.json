@@ -5,10 +5,10 @@
   "homepage": "http://c2fo.github.com/fast-csv/index.html",
   "license": "MIT",
   "dependencies": {
-    "bunyan": "^1.8.0",
     "fast-csv": ">= 0.2.0",
     "ical-generator": ">= 0.1.7",
     "moment": ">= 2.7.0",
+    "winston": "^2.2.0",
     "yargs": ">= 1.2.6"
   },
   "repository": {

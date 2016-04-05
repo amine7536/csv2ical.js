@@ -7,7 +7,7 @@
 /**
  * Dependencies
  */
-const bunyan = require('bunyan');
+const log = require('winston');
 const moment = require('moment');
 const csv = require('fast-csv');
 const ical = require('ical-generator');
@@ -30,10 +30,8 @@ const argv = require('yargs')
  * Init Stuff
  */
 const stream = fs.createReadStream(argv.i);
-const log = bunyan.createLogger({ name: 'csv2ical' });
+// const log = new winston.Logger();
 const cal = ical();
-
-log.info(argv);
 
 cal.setProdID({
   company: 'My Company',
@@ -47,7 +45,11 @@ cal.setDomain('mycompany.com').setName('My Calendar');
 */
 csv
   .fromStream(stream, { headers: argv.H, delimiter: argv.d })
-  .on('record', (data) => {
+  .on('data', (data) => {
+    /**
+    * Only process data if StartDate starts with a number
+    */
+    if (data[Object.keys(data)[argv.rows[1]]].match(/^[1-9]/)) {
     // "Subject","Start Date","End Date","Description"
     // console.log(data);
     // log.info(`Subject : ${data[Object.keys(data)[argv.rows[0]]]}`); // Subject
@@ -55,20 +57,22 @@ csv
     // log.info(`End Date : ${data[Object.keys(data)[argv.rows[2]]]}`); // End Date
     // log.info(`Description : ${data[Object.keys(data)[argv.rows[3]]]}`); // Description
     // log.info(`Location : ${data[Object.keys(data)[argv.rows[4]]]}`); // Location
-    log.info('-------------');
 
-    const startdate = moment(data[Object.keys(data)[argv.rows[1]]], argv.dateformat);
-    const enddate = moment(data[Object.keys(data)[argv.rows[2]]], argv.dateformat);
+      const startdate = moment(data[Object.keys(data)[argv.rows[1]]], argv.dateformat);
+      const enddate = moment(data[Object.keys(data)[argv.rows[2]]], argv.dateformat);
 
-    if (startdate.isValid() && enddate.isValid()) {
-      cal.addEvent({
-        start: new Date(startdate.toISOString()),
-        end: new Date(enddate.toISOString()),
-        summary: data[Object.keys(data)[argv.rows[0]]],
-        description: data[Object.keys(data)[argv.rows[3]]],
-        location: data[Object.keys(data)[argv.rows[4]]],
-        url: 'http://mycompany.com/',
-      });
+      if (startdate.isValid() && enddate.isValid()) {
+        cal.addEvent({
+          start: new Date(startdate.toISOString()),
+          end: new Date(enddate.toISOString()),
+          summary: data[Object.keys(data)[argv.rows[0]]],
+          description: data[Object.keys(data)[argv.rows[3]]],
+          location: data[Object.keys(data)[argv.rows[4]]],
+          url: 'http://mycompany.com/',
+        });
+      }
+    } else {
+      log.error('Are you using headers in your CSV file, if so you need to use -H option');
     }
   })
   .on('end', () => {
