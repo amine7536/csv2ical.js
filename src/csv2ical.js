@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * Usage : node csv2ical.js -i <input csv file> -o <output ics file> -d <delimiter char>
+ * Usage : node csv2ical -i <input csv file> -o <output ics file> -d <delimiter char>
  */
 
 /**
@@ -13,7 +13,7 @@ const csv = require('fast-csv');
 const ical = require('ical-generator');
 const fs = require('fs');
 const argv = require('yargs')
-  .usage('Usage: csv2ical.js -i [csv] -o [ics] -d [delimiter] -H')
+  .usage('Usage: csv2ical -i [csv] -o [ics] -d [delimiter] -H')
   .default('d', ',')
   .default('H', false).default('rows', ['0', '1', '2', '3', '4'])
   .demand(['i', 'o'])
@@ -33,6 +33,7 @@ const stream = fs.createReadStream(argv.i);
 // const log = new winston.Logger();
 const cal = ical();
 
+// ToDo reading ProdID from args or config file
 cal.setProdID({
   company: 'My Company',
   product: 'My Product',

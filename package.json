@@ -4,7 +4,7 @@
   "author": "Amine Benseddik <amine.benseddik@gmail.com>",
   "homepage": "http://c2fo.github.com/fast-csv/index.html",
   "license": "MIT",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "dependencies": {
     "fast-csv": ">= 0.2.0",
     "ical-generator": ">= 0.1.7",

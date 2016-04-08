@@ -4,12 +4,17 @@ Quick and dirty CSV to iCal convertor made with Node.js
 
 http://amine7536.github.io/csv2ical.js
 
+**Installation :**
+```
+#> npm install -g csv2ical
+```
+
 **Usage :**
 ```
-Usage: csv2ical.js -i [csv] -o [ics] -d [delimiter] -H
+Usage: csv2ical -i [csv] -o [ics] -d [delimiter] -H
 
 Examples:
-  csv2ical.js -i sample.csv -o sample.ics -d ";" -H
+  csv2ical -i sample.csv -o sample.ics -d ";" -H
 
 
 Options:
@@ -31,7 +36,7 @@ Options:
 
 **Example :**
 ```
-./csv2ical.js -i sample.csv -o sample.ics -H
+#> csv2ical -i sample.csv -o sample.ics -H
 Subject : Darth Vader birthday
 Start Date : 2014-07-30 18:00
 End Date : 2014-07-31 03:00
