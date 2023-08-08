@@ -9,7 +9,7 @@
  */
 const log = require('winston');
 const moment = require('moment');
-const csv = require('fast-csv');
+const csv = require('csv-parse');
 const ical = require('ical-generator');
 const fs = require('fs');
 const argv = require('yargs')
@@ -31,21 +31,21 @@ const argv = require('yargs')
  */
 const stream = fs.createReadStream(argv.i);
 // const log = new winston.Logger();
-const cal = ical();
+const cal = ical.default();
 
 // ToDo reading ProdID from args or config file
-cal.setProdID({
+cal.prodId({
   company: 'My Company',
   product: 'My Product',
   language: 'EN',
 });
-cal.setDomain('mycompany.com').setName('My Calendar');
+cal.name('My Calendar');
 
 /**
 * Parse CSV file and convert to ical events
 */
-csv
-  .fromStream(stream, { headers: argv.H, delimiter: argv.d })
+const parser = csv
+  .parse({ from_line: 1, columns: true })
   .on('data', (data) => {
     /**
     * Only process data if StartDate starts with a number
@@ -64,13 +64,12 @@ csv
       const enddate = moment(data[Object.keys(data)[argv.rows[2]]], argv.dateformat);
 
       if (startdate.isValid() && enddate.isValid()) {
-        cal.addEvent({
+        cal.createEvent({
           start: new Date(startdate.toISOString()),
           end: new Date(enddate.toISOString()),
           summary: data[Object.keys(data)[argv.rows[0]]],
           description: data[Object.keys(data)[argv.rows[3]]],
           location: data[Object.keys(data)[argv.rows[4]]],
-          url: 'http://mycompany.com/',
         });
       }
     } else {
@@ -81,3 +80,5 @@ csv
     log.info(`Saving to file : ${argv.o}`);
     cal.saveSync(argv.o);
   });
+
+stream.pipe(parser);

@@ -6,9 +6,9 @@
   "license": "MIT",
   "version": "0.1.2",
   "dependencies": {
-    "fast-csv": ">= 0.2.0",
-    "ical-generator": ">= 0.1.7",
-    "moment": ">= 2.7.0",
+    "csv-parse": "^5.4.0",
+    "ical-generator": "^5.0.0",
+    "moment": "^2.29.4",
     "winston": "^2.2.0",
     "yargs": ">= 1.2.6"
   },
@@ -23,13 +23,12 @@
     "calendar"
   ],
   "devDependencies": {
-    "babel-cli": "^6.6.5",
-    "eslint": "^2.6.0",
-    "eslint-config-airbnb": "^6.2.0",
-    "eslint-plugin-react": "^4.2.3"
+    "eslint": "^8.46.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-plugin-react": "^7.33.1"
   },
   "scripts": {
-    "build": "babel --out-dir bin src"
+    "build": "cp src/* bin/"
   },
   "bin": {
     "csv2ical": "bin/csv2ical.js"
