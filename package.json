@@ -1,16 +1,57 @@
 {
   "name": "csv2ical",
-  "description": "Quick and dirty CSV to iCal convertor",
+  "description": "CSV to iCal converter - Convert CSV files to iCalendar format with ease",
   "author": "Amine Benseddik <amine.benseddik@gmail.com>",
-  "homepage": "http://c2fo.github.com/fast-csv/index.html",
+  "homepage": "https://github.com/amine7536/csv2ical.js",
   "license": "MIT",
-  "version": "0.1.2",
+  "version": "1.0.0",
+  "type": "module",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "bin": {
+    "csv2ical": "./dist/csv2ical.js"
+  },
+  "main": "./dist/csv2ical.js",
+  "types": "./dist/csv2ical.d.ts",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "lint": "eslint src --ext .ts",
+    "lint:fix": "eslint src --ext .ts --fix",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "format:check": "prettier --check \"src/**/*.ts\"",
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf dist",
+    "prepublishOnly": "npm run clean && npm run build"
+  },
   "dependencies": {
-    "fast-csv": ">= 0.2.0",
-    "ical-generator": ">= 0.1.7",
-    "moment": ">= 2.7.0",
-    "winston": "^2.2.0",
-    "yargs": ">= 1.2.6"
+    "csv-parse": "^5.5.6",
+    "ical-generator": "^7.2.0",
+    "winston": "^3.14.2",
+    "yargs": "^17.7.2"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.15",
+    "@types/yargs": "^17.0.32",
+    "@typescript-eslint/eslint-plugin": "^7.18.0",
+    "@typescript-eslint/parser": "^7.18.0",
+    "@vitest/coverage-v8": "^2.1.8",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "prettier": "^3.3.3",
+    "tsx": "^4.19.2",
+    "typescript": "^5.5.4",
+    "vitest": "^2.1.8"
   },
   "repository": {
     "type": "git",
@@ -18,20 +59,12 @@
   },
   "keywords": [
     "csv",
-    "parser",
     "ical",
-    "calendar"
-  ],
-  "devDependencies": {
-    "babel-cli": "^6.6.5",
-    "eslint": "^9.0.0",
-    "eslint-config-airbnb": "^6.2.0",
-    "eslint-plugin-react": "^4.2.3"
-  },
-  "scripts": {
-    "build": "babel --out-dir bin src"
-  },
-  "bin": {
-    "csv2ical": "bin/csv2ical.js"
-  }
+    "calendar",
+    "ics",
+    "converter",
+    "parser",
+    "typescript",
+    "cli"
+  ]
 }

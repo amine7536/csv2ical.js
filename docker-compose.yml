@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  csv2ical:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: csv2ical:latest
+    volumes:
+      - ./data:/data
+    command: ["-i", "/data/input.csv", "-o", "/data/output.ics", "-H"]

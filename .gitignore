@@ -1,8 +1,39 @@
-.DS_Store
-node_modules
-.tmp
-.idea
-dist
+# Dependencies
+node_modules/
 npm-debug.log
-coverage
-sample.ics
+yarn-error.log
+
+# Build output
+dist/
+bin/
+*.tsbuildinfo
+
+# Test coverage
+coverage/
+.nyc_output/
+
+# Test output files
+*.ics
+!sample.ics
+**/__tests__/test-*.csv
+**/__tests__/test-*.ics
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Temporary files
+.tmp/
+*.log
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# OS
+Thumbs.db
