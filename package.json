@@ -44,14 +44,14 @@
     "@types/yargs": "^17.0.32",
     "@typescript-eslint/eslint-plugin": "^7.18.0",
     "@typescript-eslint/parser": "^7.18.0",
-    "@vitest/coverage-v8": "^2.1.8",
+    "@vitest/coverage-v8": "^4.0.16",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.2.1",
     "prettier": "^3.3.3",
     "tsx": "^4.19.2",
     "typescript": "^5.5.4",
-    "vitest": "^2.1.8"
+    "vitest": "^4.0.16"
   },
   "repository": {
     "type": "git",
