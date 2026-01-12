@@ -51,7 +51,7 @@
     "prettier": "^3.3.3",
     "tsx": "^4.19.2",
     "typescript": "^5.5.4",
-    "vitest": "^2.1.8"
+    "vitest": "^4.0.16"
   },
   "repository": {
     "type": "git",
